@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./materialize.min.css">
+    <link rel="stylesheet" href="./agent.css">
+    <title>Add or Edit Traveler</title>
+</head>
+
+<body>
+
+    <a class="btn-floating btn-large waves-effect waves-light red" href="/agentTraveler"><img
+            src="./ASSETS/icons/back.png" alt=""></a>
+
+    <form method="POST" class="addServiceTraveller">
+        <h1>Add Traveler Services</h1>
+        <div>
+            <h2>Flights</h2>
+            <div class="input-field col s12">
+                <input id="goF" type="text" name="goFlight" class="validate">
+                <label for="goF">Going Flight Number</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="dateG" type="text" name="dateOfGoFlight" class="datepicker">
+                <label for="dateG">Date of Go Flight</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="timeG" type="text" name="timeOfGoFlight" class="timepicker">
+                <label for="timeG">Time of Go Flight</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="RFlight" type="text" name="returnFlight" class="validate">
+                <label for="RFlight">Return Flight Number</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="dateR" type="text" name="dateOfReturnFlight" class="datepicker">
+                <label for="dateR">Date of Return Flight</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="timeR" type="text" name="timeOfReturnFlight" class="timepicker">
+                <label for="timeR">Time of Return Flight</label>
+            </div>
+        </div>
+        <div>
+            <h2>Resturaunts</h2>
+            <div class="input-field col s12">
+                <input id="resName" type="text" name="resName" class="validate">
+                <label for="resName">Resturaunt Name</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="Rstreet" type="text" name="street">
+                <label for="Rstreet">Street</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="Rblock" type="text" name="block" class="validate">
+                <label for="Rblock">Block</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="Rcity" type="text" name="city" class="validate">
+                <label for="Rcity">City</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="Rcountry" type="text" name="country">
+                <label for="Rcountry">Country</label>
+            </div>
+        </div>
+        <div>
+            <h2>Buses</h2>
+            <div class="input-field col s12">
+                <input id="comName" type="text" name="compName" class="validate">
+                <label for="comName">Company Name</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="busNo" type="text" name="busNum">
+                <label for="busNo">Bus Number</label>
+            </div>
+        </div>
+        <div>
+            <h2>Hotels</h2>
+            <div class="input-field col s12">
+                <input id="hotName" type="text" name="hotName" class="validate">
+                <label for="hotName">Hotel Name</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="Hstreet" type="text" name="hotStreet">
+                <label for="Hstreet">Street</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="Hblock" type="text" name="hotBlock" class="validate">
+                <label for="Hblock">Block</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="Hcity" type="text" name="hotCity" class="validate">
+                <label for="Hcity">City</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="Hcountry" type="text" name="hotCountry">
+                <label for="Hcountry">Country</label>
+            </div>
+        </div>
+        <button class="saveDetails" href="./agentTraveler">Save Details</button>
+        </div>
+
+        <script src="./materialize.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var elems = document.querySelectorAll('select');
+                var instances = M.FormSelect.init(elems);
+            });
+            document.addEventListener('DOMContentLoaded', function () {
+                var elems = document.querySelectorAll('.datepicker');
+                var instances = M.Datepicker.init(elems);
+            });
+            document.addEventListener('DOMContentLoaded', function () {
+                var elems = document.querySelectorAll('.timepicker');
+                var instances = M.Timepicker.init(elems);
+            });
+        </script>
+</body>
+
+</html>

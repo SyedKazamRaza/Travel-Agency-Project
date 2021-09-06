@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./materialize.min.css">
+    <link rel="stylesheet" href="./ASSETS/fontAwesome/css/all.css">
+    <link href="./adminS.css" rel="stylesheet" type="text/css">
+    <title>Travel Agency Database</title>
+</head>
+
+<body>
+    <a class="btn-floating btn-large waves-effect waves-light back" href="./adminSignIn"><img
+            src="./ASSETS/icons/back.png" alt=""></a>
+    <a id="showWithoutAgent" href="/ShowTravellerWithoutAgent">Show Travellers Without Agent</a>
+    <div id="adminPanel">
+        <div id="sideBar">
+            <a href="./adminPanel">
+                <div class="sideBarIcon">
+                    <img src="./ASSETS/icons/revenue.png" alt="">
+                </div>
+            </a>
+            <a href="./adminPanelAgent">
+                <div class="sideBarIcon">
+                    <img src="./ASSETS/icons/agent.png" alt="">
+                </div>
+            </a>
+            <a href="./adminPanelTraveller">
+                <div class="sideBarIcon">
+                    <img src="./ASSETS/icons/traveler.png" alt="">
+                </div>
+            </a>
+        </div>
+        <div id="adminTravelerPanel">
+            <h1>Traveller Option</h1>
+            <form method="POST" class="SearchFields">
+                <div class="input-field col s12">
+                    <input id="byID" type="number" name="id" class="validate">
+                    <label for="byID">Search By ID</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="byName" type="text" name="name" class="validate">
+                    <label for="byName">Search By Name</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="byCNIC" type="number" name="CNIC" class="validate">
+                    <label for="byCNIC">Search By CNIC</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="byTripCity" type="text" name="tripcity" class="validate">
+                    <label for="byTripCity">Search By Trip City</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="byAgentID" type="text" name="agent" class="validate">
+                    <label for="byAgentID">Search By AgentID</label>
+                </div>
+                <button type="submit" class="waves-effect waves-light btn-large">Search!</button>
+            </form>
+            <%if(travelersForAdmin.length!=0){%>
+            <%travelersForAdmin.forEach(traveler => {%>
+            <div class="travelerDetails">
+                <h2><%=traveler.CustomerID%></h2>
+                <h2><%=traveler.FName%></h2>
+                <h2><%=traveler.LName%></h2>
+                <h2><%=traveler.CNIC%></h2>
+                <a href="/adminEditTraveler?id=<%=traveler.CustomerID%>"> <i class="fas fa-user-edit"></i></a>
+                <a href="/adminDeleteTraveler?id=<%=traveler.CustomerID%>"><i class="fas fa-trash-alt"></i></a>
+                <a href="/adminShowTraveler?id=<%=traveler.CustomerID%>"><i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+            <%});%>
+            <%}%>
+        </div>
+    </div>
+
+    <script src="./materialize.min.js"></script>
+</body>
+
+</html>

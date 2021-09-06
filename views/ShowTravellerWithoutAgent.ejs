@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./materialize.min.css">
+    <link href="./adminS.css" rel="stylesheet" type="text/css">
+    <title>Travel Agency Database</title>
+</head>
+
+<body>
+
+    <div id="travelWithout">
+            <a class="btn-floating btn-large waves-effect waves-light backbut" href="./adminPanelTraveller"><img
+                src="./ASSETS/icons/back.png" alt=""></a>
+        <%if(withoutAgent.length!=0){%>
+        <%withoutAgent.forEach(without => {%>
+        <div>
+            <h2>Name: <%=without.FName%> <%=without.LName%></h2>
+            <h2>Trip City: <%=without.LocName%></h2>
+            <form method="POST" class="input-field col s12">
+                <select id="agentselection" name="agentID">
+                    <option value="" disabled selected>Choose your option</option>
+                    <%agents.forEach(agent => {%>
+                        <%if(agent.LocationID == without.LocationID){%>
+                        <option value="<%=agent.AgentID%>"><%=agent.FName%> <%=agent.LName%> - <%=agent.noOFCustomers%></option>
+                    <%}});%>
+                </select>
+                <label for="agentselection">Available Agents</label>
+                <input type="text" name="cusID" value="<%=without.CustomerID%>" style="display: none;">
+                <button type="submit" class="waves-effect waves-light btn-large connectAgent">Connect Agent</button>
+            </form>
+        </div>
+        <%});}else{%>
+            <div style="width: max-content;" id="toCenter">
+                <p>No Traveler Without Agent!</p>
+            </div>
+        <%}%>
+    </div>
+
+
+    <script src="./materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems);
+        });
+    </script>
+
+</body>
+
+</html>

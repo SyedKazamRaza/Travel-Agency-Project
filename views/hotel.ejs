@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="materialize.min.css">
+    <link rel="stylesheet" href="./ASSETS/fontAwesome/css/all.css">
+    <link href="./agent.css" rel="stylesheet" type="text/css">
+    <title>Document</title>
+</head>
+
+<body>
+    <a class="btn-floating btn-large waves-effect waves-light red" href="./agentServices"><img
+            src="./ASSETS/icons/back.png" alt=""></a>
+    <form method="POST" id="adminTravelerPanel">
+        <h1>Hotel</h1>
+        <div class="row SearchFields">
+            <div class="input-field col s12">
+                <input id="byID" type="number" name="id" class="validate">
+                <label for="byID">Search By ID</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="byName" type="text" name="name" class="validate">
+                <label for="byName">Search by Name</label>
+            </div>
+            <button type="submit" class="waves-effect waves-light btn-large button">Search!</button>
+        </div>
+        <%hotels.forEach(hotel => {%>
+        <div class="travelerDetails">
+            <h2><%=hotel.HotelID%></h2>
+            <h2><%=hotel.HotelName%></h2>
+            <a href="/hotel?id=<%=hotel.HotelID%>"><i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+        <%});%>
+        <%if(show){%>
+        <div class="hotelDetails">
+            <div>
+                <h3>Name:</h3>
+                <p><%=hotels[0].HotelName%></p>
+            </div>
+            <div>
+                <h3>Address: </h3>
+                <p><%=hotels[0].House%>, <%=hotels[0].Street%>, <%=hotels[0].Block%>,
+                    <%=hotels[0].City%></p>
+            </div>
+        </div>
+        <%}%>
+        </form>
+    <script src="./materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.datepicker');
+            var instances = M.Datepicker.init(elems);
+        });
+    </script>
+</body>
+
+</html>

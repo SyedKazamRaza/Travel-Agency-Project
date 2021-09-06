@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./materialize.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Edit My details</title>
+</head>
+
+<body>
+
+    <body>
+        <div class="forBackRegister">
+            <a class="btn-floating btn-large waves-effect waves-light red" href="./travelerPanel"><img
+                    src="./ASSETS/icons/back.png" alt=""></a>
+            <br><br><br>
+
+            <div class="regForm">
+                <h3>Edit My details Form</h3>
+                <form method="POST" class="row regFormInside">
+                    <div class="input-field col s12">
+                        <input id="FName" type="text" name="fname" required value="<%=result[0].FName%>"
+                            class="validate">
+                        <label for="FName">First Name</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="LName" type="text" name="lname" required value="<%=result[0].LName%>"
+                            class="validate">
+                        <label for="LName">Last Name</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="CNIC" type="text" name="CNIC" required value="<%=result[0].CNIC%>" class="validate"
+                            data-length="10">
+                        <label for="CNIC">CNIC</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="House" type="number" name="house" required value="<%=address[0].House%>"
+                            class="validate">
+                        <label for="House">House No</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="Street" type="text" name="street" required value="<%=address[0].Street%>"
+                            class="validate">
+                        <label for="Street">Street No</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="Block" type="text" name="block" required value="<%=address[0].Block%>"
+                            class="validate">
+                        <label for="Block">Block</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="City" type="text" name="city" required value="<%=address[0].City%>" class="validate">
+                        <label for="City">City</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="Country" type="text" name="country" required value="<%=address[0].Country%>"
+                            class="validate">
+                        <label for="Country">Country</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="phone" type="number" name="phone" value="<%=contact[0].PhoneNo%>" required class="validate">
+                        <label for="phone">Phone no</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="email" type="email" name="email" value="<%=contact[0].Email%>" required class="validate">
+                        <label for="email">Email ID</label>
+                    </div>
+                    <button class="waves-effect waves-light btn-large signinbutton" type="submit">Save
+                        Edit</button>
+                </form>
+            </div>
+        </div>
+        <script src="./materialize.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var elems = document.querySelectorAll('select');
+                var instances = M.FormSelect.init(elems);
+            });
+            document.addEventListener('DOMContentLoaded', function () {
+                var elems = document.querySelectorAll('.datepicker');
+                var instances = M.Datepicker.init(elems);
+            });
+        </script>
+
+    </body>
+
+</html>

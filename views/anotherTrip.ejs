@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./materialize.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Traveler Panel</title>
+</head>
+<body>
+    <div class="forBackRegister">
+        <a class="btn-floating btn-large waves-effect waves-light red" href="/travelerPanel"><img
+            src="./ASSETS/icons/back.png" alt=""></a>
+    <br><br><br>
+    <div class="regForm">
+        <h3>Registration Form</h3>
+        <form method="POST" class="row regFormInside">
+            <div class="input-field col s12">
+                <select name="location">
+                    <option value="" disabled selected>Choose your option</option>
+                    <%locations.forEach(location => {%>
+                    <option value="<%=location.LocationID%>"><%=location.LocName%></option>
+                    <%});%>
+                </select>
+                <label>Select Location</label>
+            </div>
+            <div class=" col s12">
+                <label for="Startdate">Start Date</label>
+                <input for="Startdate" required type="text" name="startDate" class="datepicker">
+            </div>
+            <div class=" col s12">
+                <label for="Enddate">End Date</label>
+                <input for="Enddate" required type="text" name="endDate" class="datepicker">
+            </div>
+            <button class="waves-effect waves-light btn-large signinbutton" type="submit">Register</button>
+        </form>
+    </div>
+    <br><br><br>
+
+    </div>
+    <script src="./materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems);
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.datepicker');
+            var instances = M.Datepicker.init(elems);
+        });
+    </script>
+</body>
+</html>

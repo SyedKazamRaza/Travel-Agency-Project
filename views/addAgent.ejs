@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./materialize.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Traveler Panel</title>
+</head>
+<body>
+    <div class="forBackRegister">
+        <a class="btn-floating btn-large waves-effect waves-light red" href="./adminPanelAgent"><img
+                src="./ASSETS/icons/back.png" alt=""></a>
+        <br><br><br>
+        <div class="regForm">
+            <h3>Add New Agent</h3>
+            <form method="POST" class="row regFormInside">
+                <%if(exist){%>
+                    <p style="color: tomato; text-align: center;">Agent with same number Already Exist</p>
+                <%}%>
+                <div class="input-field col s12">
+                    <input id="FName" type="text" name="fname" class="validate">
+                    <label for="FName">First Name</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="LName" type="text" name="lname" class="validate">
+                    <label for="LName">Last Name</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="House" type="number" name="house" class="validate">
+                    <label for="House">House No</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="Street" type="text" name="street" class="validate">
+                    <label for="Street">Street No</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="Block" type="text" name="block" class="validate">
+                    <label for="Block">Block</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="City" type="text" name="city" class="validate">
+                    <label for="City">City</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="Country" type="text" name="country" class="validate">
+                    <label for="Country">Country</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="phone" type="number" name="phone" required class="validate">
+                    <label for="phone">Phone no</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="email" type="email" name="email" required class="validate">
+                    <label for="email">Email ID</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="salary" type="number" name="baseSal" class="validate">
+                    <label for="salary">Base Salary</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="comm" type="number" name="commRate" class="validate">
+                    <label for="comm">Commision Rate</label>
+                </div>
+                <div class="input-field col s12">
+                    <select name="location">
+                        <option value="" disabled selected>Choose your option</option>
+                        <%locations.forEach(location => {%>
+                        <option value="<%=location.LocationID%>"><%=location.LocName%></option>
+                        <%});%>
+                    </select>
+                    <label>Select Location</label>
+                </div>
+                <button class="waves-effect waves-light btn-large signinbutton" type="submit"
+                    href="./adminPanelAgent">Add Agent</button>
+            </form>
+        </div>
+        <br><br><br>
+
+    </div>
+    <script src="./materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems);
+        });
+    </script>
+
+</body>
+
+</html>

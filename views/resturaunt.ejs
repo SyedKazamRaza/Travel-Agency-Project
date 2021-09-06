@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="materialize.min.css">
+    <link rel="stylesheet" href="./ASSETS/fontAwesome/css/all.css">
+    <link href="./agent.css" rel="stylesheet" type="text/css">
+    <title>Document</title>
+</head>
+
+<body>
+    <a class="btn-floating btn-large waves-effect waves-light red " href="./agentServices"><img
+            src="./ASSETS/icons/back.png" alt=""></a>
+    <div id="adminTravelerPanel">
+        <h1>Resturaunt</h1>
+        <form method="POST"  class="row SearchFields">
+            <div class="input-field col s12">
+                <input id="byID" type="number" name="id" class="validate">
+                <label for="byID">Search By ID</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="byName" type="text" name="name" class="validate">
+                <label for="byName">Search by Name</label>
+            </div>
+            <button type="submit" class="waves-effect waves-light btn-large button">Search!</button>
+        </form>
+        <%resturaunts.forEach(resturaunt => {%>
+            <div class="travelerDetails">
+                <h2><%=resturaunt.ResturauntID%></h2>
+                <h2><%=resturaunt.ResturantName%></h2>
+                <a href="/resturaunt?id=<%=resturaunt.ResturauntID%>"><i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+            <%});%>
+            <%if(show){%>
+            <div class="hotelDetails">
+                <div>
+                    <h3>Name:</h3>
+                    <p><%=resturaunts[0].ResturantName%></p>
+                </div>
+                <div>
+                    <h3>Address: </h3>
+                    <p><%=resturaunts[0].House%>, <%=resturaunts[0].Street%>, <%=resturaunts[0].Block%>,
+                        <%=resturaunts[0].City%></p>
+                </div>
+            </div>
+            <%}%>
+    </div>
+
+    <script src="./materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.datepicker');
+            var instances = M.Datepicker.init(elems);
+        });
+    </script>
+</body>
+
+</html>

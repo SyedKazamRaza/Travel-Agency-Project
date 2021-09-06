@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./materialize.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Traveler Panel</title>
+</head>
+
+<body>
+    <div class="forBackRegister">
+        <a class="btn-floating btn-large waves-effect waves-light red" href="/travelerPanel"><img
+                src="./ASSETS/icons/back.png" alt=""></a>
+        <br><br><br>
+        <div class="regForm">
+            <h3>Add Participants Form</h3>
+            <form method="POST" class="row regFormInside">
+                <%if(incorrect){%>
+                <p style="color: tomato; text-align: center;">Invalid Details</p>
+                <%}%>
+                <div class="input-field col s12">
+                    <input id="travelID" type="text" name="travelID" required class="validate">
+                    <label for="travelID">Enter Traveler ID</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="cnic" type="text" name="cnic" required class="validate">
+                    <label for="cnic">Enter Traveler CNIC</label>
+                </div>
+                <button class="waves-effect waves-light btn-large signinbutton" type="submit">Connect</button>
+            </form>
+        </div>
+    </div>
+    <%if(success){%>
+    <div class="topBox">
+        <p>Connected Successfully</p>
+        <a class="waves-effect waves-light btn-large signinbutton" href="/travelerPanel">Go Back</a>
+    </div>
+    <%}%>
+    <script src="./materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems);
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.datepicker');
+            var instances = M.Datepicker.init(elems);
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="materialize.min.css">
+    <link rel="stylesheet" href="./ASSETS/fontAwesome/css/all.css">
+    <link href="./agent.css" rel="stylesheet" type="text/css">
+    <title>Document</title>
+</head>
+
+<body>
+    <a class="btn-floating btn-large waves-effect waves-light red" href="./agentServices"><img
+            src="./ASSETS/icons/back.png" alt=""></a>
+    <div id="adminTravelerPanel">
+        <h1>Flights</h1>
+        <form method="POST" class="row SearchFields">
+            <div class="input-field col s12">
+                <input id="byID" name="id" type="number" class="validate">
+                <label for="byID">Search By ID</label>
+            </div>
+            <div class="col s12">
+                <label for="date">Flight Number</label>
+                <input id="date" name="number" type="text">
+            </div>
+            <button type="submit" class="waves-effect waves-light btn-large button">Search!</button>
+        </form>
+        <%detailsForAgent.forEach(element => {%>
+        <div class="travelerDetails">
+            <h2><%=element.FlightID%></h2>
+            <h2><%=element.goFlightNumber%></h2>
+            <h2><%=(element.goDepartureTime).toString(10).slice(0,15)%></h2>
+        </div>
+        <div class="travelerDetails">
+            <h2><%=element.FlightID%></h2>
+            <h2><%=element.returnFlightNumber%></h2>
+            <h2><%=(element.returnDepartureTime).toString(10).slice(0,15)%></h2>
+        </div>
+        <%});%>
+
+    </div>
+
+    <script src="./materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.datepicker');
+            var instances = M.Datepicker.init(elems);
+        });
+    </script>
+</body>
+
+</html>

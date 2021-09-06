@@ -1,0 +1,392 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: montserrat;
+}
+
+#mainDiv {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to top right, #13945890, #00808590);
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -10;
+}
+
+#mainDiv div img {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    margin-top: 5%;
+}
+
+#title {
+    text-align: center;
+    background: -webkit-linear-gradient(#e81c41, #faa522);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Sacramento', cursive;
+    font-size: 100px;
+    margin-top: 40px;
+}
+
+#downDesign {
+    z-index: -1;
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+}
+
+#credits {
+    max-width: max-content;
+    position: absolute;
+    right: 40px;
+    bottom: 10px;
+    margin: 0;
+}
+
+#credits h2 {
+    color: #eee;
+    font-size: 25px;
+    margin: 10px 0px;
+}
+
+#credits h3 {
+    color: #eee;
+    font-size: 14px;
+    margin: 0;
+}
+
+#subject h1 {
+    font-family: 'montserrat';
+    color: #fff;
+    position: absolute;
+    bottom: 35px;
+    left: 40px;
+    margin: 0;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.gotoButtons {
+
+    display: flex;
+    justify-content: space-around;
+    width: 80vw;
+    margin: 40px auto 0 auto;
+}
+
+#gotoAdmin {
+    background: #e81c41;
+}
+
+#gotoTraveler {
+    background-color: #faa522;
+}
+
+#gotoAgent {
+    background-color: #b120ce;
+}
+
+.travelerSignInScreen {
+    display: flex;
+}
+
+.sideImgSignIn {
+    height: 100vh;
+    width: 35%;
+    margin: 0;
+    background: linear-gradient(to top, #4af5e7, #53d9fa);
+}
+
+.sideImgSignIn img {
+    width: 350px;
+    display: block;
+    margin: 0 auto;
+    padding-top: 15%;
+    -webkit-filter: drop-shadow(12px 12px 25px rgba(0, 147, 206, 0.856));
+}
+
+.sideImgSignIn h2 {
+    color: #08443f;
+    padding: 80px;
+    font-size: 50px;
+}
+
+.signInForm {
+    display: block;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+
+#signupside {
+    width: 500px;
+}
+
+.signinforminside {
+    margin: 0 auto;
+    width: 400px;
+}
+
+.siginname {
+    font-size: 30px;
+    text-align: center;
+}
+
+.signinbutton {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    border: none;
+}
+
+#toSignUp {
+    display: block;
+    margin: 20px;
+    padding: 30px;
+    text-align: center;
+}
+
+.regForm {
+    background-color: #fff;
+    width: 400px;
+    box-shadow: #f2d6fc 0px 20px 80px;
+    border-radius: 20px;
+    margin: 0px auto;
+    padding: 20px 50px;
+}
+
+.regForm h3 {
+    font-size: 25px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.forBackRegister {
+    background: url('./ASSETS/imgs/back.png');
+    background-size: cover;
+}
+
+.btn-floating {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    box-shadow: #f2d6fc 0px 20px 30px;
+}
+
+.btn-floating img {
+    width: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.TravelerPanel {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 100px;
+}
+
+#travelerPanel {
+    background-image: url('./ASSETS/imgs/back.png');
+    background-size: cover;
+    background-size: 100%;
+    height: 100vh;
+    width: 100vw;
+}
+
+.optionsTravelerPanel {
+    border-radius: 40px;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    box-shadow: #f2d6fc 0px 20px 80px;
+    transition: all .2s ease-in;
+    color: #d561ff;
+    background-color: #fff;
+}
+
+.optionsTravelerPanel:hover {
+    cursor: pointer;
+    transition: all .2s ease-in;
+    box-shadow: #f2d6fc 0px 0px 20px;
+    background-size: 100%;
+}
+
+.optionsTravelerPanel:active {
+    transition: all 0s ease-in;
+    box-shadow: inset 0 0 30px #f2d6fc;
+}
+
+.optionsTravelerPanel:hover img {
+    transition: all .2s ease-in;
+    transform: scale(.98) translate(-50%, -50%);
+}
+
+.optionsTravelerPanel img {
+    transition: all .2s ease-in;
+    width: 70px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: scale(1) translate(-50%, -50%);
+}
+
+.optionsTravelerPanel h2 {
+    font-size: 25px;
+    text-align: center;
+    margin-top: 200px;
+}
+
+#travelpanelname {
+    font-size: 60px;
+    margin: 0;
+    padding-top: 40px;
+    padding-left: 170px;
+    color: #fff;
+}
+
+#personalias {
+    font-size: 30px;
+    font-weight: 700;
+    padding-left: 170px;
+    color: #fff;
+}
+
+#deletedTraveler {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 20px;
+    color: #fff;
+    padding: 20px 30px;
+    color: rgba(255, 99, 71, 0.678);
+    box-shadow: rgba(255, 99, 71, 0.322) 0 20px 80px;
+}
+
+#forRedBG {
+    background-image: url('./ASSETS/imgs/backRed.png');
+    background-position: center;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
+
+#deletedTraveler h2 {
+    font-size: 30px;
+    text-align: center;
+    color: rgba(255, 99, 71, 0.678);
+}
+
+#deletedTraveler img {
+    width: 70px;
+    display: block;
+    margin: 0 auto;
+}
+
+#deletedTraveler a {
+    background-color: #fff;
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    background-color: rgb(255, 99, 71);
+    ;
+}
+
+.travelDetail {
+    box-shadow: #f4d5ff 0 3px 30px;
+    width: 450px;
+    padding: 30px;
+    height: max-content;
+    border-radius: 10px;
+}
+
+.travelDetail h2 {
+    font-size: 25px;
+    margin: 0 0 30px 0;
+    text-align: center;
+    color: #b120ce;
+}
+
+.travelDetail div {
+    display: flex;
+}
+
+.travelDetail h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 10px 0 0 0;
+}
+
+.travelDetail p {
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.travelDetail a {
+    display: block;
+    text-align: center;
+    margin: 20px auto 10px auto;
+    width: 300px;
+}
+
+.allDetailCards {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+#toMakeGreen {
+    color: #39d15a;
+}
+
+#toMakeRed {
+    color: tomato;
+}
+
+.changeMyPassword {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    color: #b120ce;
+    font-weight: 500;
+    border-radius: 10px;
+    border: 1px solid #b120ce;
+    padding: 15px 30px;
+    transition: all .2s ease-in;
+}
+
+.changeMyPassword:hover {
+    background-color: #b120ce;
+    color: #fff;
+}
+
+#changePassForm {
+    background-color: #fff;
+    width: 450px;
+    box-shadow: #f2d6fc 0px 20px 80px;
+    border-radius: 20px;
+    margin: 0px auto;
+    padding: 20px 50px;
+}
+#changePassForm h2{
+    font-size: 30px;
+    text-align: center;
+}

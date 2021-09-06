@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./materialize.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Show My details</title>
+</head>
+
+<body>
+    <a class="btn-floating btn-large waves-effect waves-light red" href="./adminPanelTraveller"><img
+            src="./ASSETS/icons/back.png" alt=""></a>
+    <div>
+        <div class="allDetailCards">
+            <div class="travelDetail">
+                <h2>Personal Details</h2>
+                <div>
+                    <h3>First Name:</h3>
+                    <p><%=detailsOfTraveler[0].FName%></p>
+                </div>
+                <div>
+                    <h3>Last Name:</h3>
+                    <p><%=detailsOfTraveler[0].LName%></p>
+                </div>
+                <div>
+                    <h3>CNIC: </h3>
+                    <p><%=detailsOfTraveler[0].CNIC%></p>
+                </div>
+                <div>
+                    <h3>House #</h3>
+                    <p><%=detailsOfTraveler[0].House%></p>
+                </div>
+                <div>
+                    <h3>Street #</h3>
+                    <p><%=detailsOfTraveler[0].Street%></p>
+                </div>
+                <div>
+                    <h3>Block: </h3>
+                    <p><%=detailsOfTraveler[0].Block%></p>
+                </div>
+                <div>
+                    <h3>City: </h3>
+                    <p><%=detailsOfTraveler[0].City%></p>
+                </div>
+                <div>
+                    <h3>Country: </h3>
+                    <p><%=detailsOfTraveler[0].Country%></p>
+                </div>
+                <div>
+                    <h3>Contact # </h3>
+                    <p><%=detailsOfTraveler[0].PhoneNo%></p>
+                </div>
+                <div>
+                    <h3>Email: </h3>
+                    <p><%=detailsOfTraveler[0].Email%></p>
+                </div>
+            </div>
+            <div class="travelDetail">
+                <h2>Agent Details</h2>
+                <%if(agentDetailsForTraveler.length != 0){%>
+                <div>
+                    <h3>First Name:</h3>
+                    <p><%=agentDetailsForTraveler[0].FName%></p>
+                </div>
+                <div>
+                    <h3>Last Name:</h3>
+                    <p><%=agentDetailsForTraveler[0].LName%></p>
+                </div>
+                <div>
+                    <h3>House #</h3>
+                    <p><%=agentDetailsForTraveler[0].House%></p>
+                </div>
+                <div>
+                    <h3>Street #</h3>
+                    <p><%=agentDetailsForTraveler[0].Street%></p>
+                </div>
+                <div>
+                    <h3>Block: </h3>
+                    <p><%=agentDetailsForTraveler[0].Block%></p>
+                </div>
+                <div>
+                    <h3>City: </h3>
+                    <p><%=agentDetailsForTraveler[0].City%></p>
+                </div>
+                <div>
+                    <h3>Country: </h3>
+                    <p><%=agentDetailsForTraveler[0].Country%></p>
+                </div>
+                <div>
+                    <h3>Contact # </h3>
+                    <p><%=agentDetailsForTraveler[0].PhoneNo%></p>
+                </div>
+                <div>
+                    <h3>Email: </h3>
+                    <p><%=agentDetailsForTraveler[0].Email%></p>
+                </div>
+                <%}else{%>
+                <h4>No Agent Connected Yet</h4>
+                <%}%>
+            </div>
+            <div class="travelDetail">
+                <h2>Payment Details</h2>
+                <div >
+                    <h3>Total Charges:</h3>
+                    <p><%=detailsOfTraveler[0].TotalServiceCharges%> Rupees</p>
+            </div>
+            <div>
+                <h3>Advance Paid: </h3>
+                <p><%=detailsOfTraveler[0].AdvanceReceived%> Rupees</p>
+            </div>
+            <div id="toMakeGreen">
+                <h3>Total Paid: </h3>
+                <p><%=detailsOfTraveler[0].TotalRecived%> Rupees</p>
+            </div>
+
+            <div id="toMakeRed">
+                <h3>Payable Amount: </h3>
+                <p><%=(detailsOfTraveler[0].TotalServiceCharges-detailsOfTraveler[0].TotalRecived)%> Rupees</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="allDetailCards">
+        <div class="travelDetail">
+            <h2>Flight Details</h2>
+            <%if(serviceDetails.length != 0){%>
+            <div>
+                <h3>Go Flight Number:</h3>
+                <p><%=serviceDetails[0].goFlightNumber%></p>
+            </div>
+            <div>
+                <h3>Go Departure Date:</h3>
+                <p><%=serviceDetails[0].goDepartureTime%></p>
+            </div>
+            <div>
+                <h3>Return Flight Number:</h3>
+                <p><%=serviceDetails[0].returnFlightNumber%></p>
+            </div>
+            <div>
+                <h3>Return Departure Date:</h3>
+                <p><%=serviceDetails[0].returnDepartureTime%></p>
+            </div>
+            <%}else{%>
+            <h4>Not Available Yet!</h4>
+            <%}%>
+            </div>
+            <div class="travelDetail">
+                <h2>Resturaunt Details</h2>
+                <%if(serviceDetails.length != 0){%>
+            <div>
+                <h3>Name:</h3>
+                <p><%=serviceDetails[0].ResturantName%></p>
+            </div>
+            <div>
+                <h3>Address: </h3>
+                <p><%=resturauntAddress[0].House%>, <%=resturauntAddress[0].Street%>, <%=resturauntAddress[0].Block%>,
+                    <%=resturauntAddress[0].City%></p>
+            </div>
+            <%}else{%>
+            <h4>Not Available Yet!</h4>
+            <%}%>
+            </div>
+            <div class="travelDetail">
+            <h2>Bus Details</h2>
+            <%if(serviceDetails.length != 0){%>
+            <div>
+                <h3>Company Name:</h3>
+                <p><%=serviceDetails[0].BusServiceProvider%></p>
+            </div>
+            <div>
+                <h3>Bus No: </h3>
+                <p><%=serviceDetails[0].busnum%></p>
+            </div>
+            <%}else{%>
+            <h4>Not Available Yet!</h4>
+            <%}%>
+            </div>
+        </div>
+        <div class="allDetailCards">
+            <div class="travelDetail">
+                <h2>Resturaunt Details</h2>
+                <%if(serviceDetails.length != 0){%>
+            <div>
+                <h3>Name:</h3>
+                <p><%=serviceDetails[0].HotelName%></p>
+            </div>
+            <div>
+                <h3>Address: </h3>
+                <p><%=hotelAddress[0].House%>, <%=hotelAddress[0].Street%>, <%=hotelAddress[0].Block%>,
+                    <%=hotelAddress[0].City%></p>
+            </div>
+            <%}else{%>
+            <h4>Not Available Yet!</h4>
+            <%}%>
+            </div>    
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prices</title>
+    <style>
+        * {
+            font-family: montserrat;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .flip3D {
+            width: 320px;
+            height: 420px;
+        }
+
+        .flip3D .front {
+            position: absolute;
+            transform: perspective(400px) rotateY(0deg);
+            width: 320px;
+            height: 420px;
+            border-radius: 20px;
+            backface-visibility: hidden;
+            transition: transform .5s linear 0s;
+            box-shadow: rgba(0, 111, 155, 0.603) 0 20px 50px;
+        }
+
+        .zero {
+            background: linear-gradient(to top right, #30e8bf, #ff8235);
+        }
+
+        .one {
+            background: linear-gradient(to bottom left, #67c7b7, #d8db11);
+        }
+
+        .two {
+            background: linear-gradient(to bottom left, #de6161, #2657eb);
+        }
+
+        .three {
+            background: linear-gradient(to top right, #1da003, #d4d800);
+        }
+
+        .four {
+            background: linear-gradient(to top right, #df07d4, #c2af0a);
+        }
+
+        .five {
+            background: linear-gradient(to top right, #a770ef, #cf8bf3, #fdb99b);
+        }
+
+        .flip3D .back {
+            position: absolute;
+            transform: perspective(400px) rotateY(180deg);
+            background: #80BFFF;
+            width: 320px;
+            height: 420px;
+            border-radius: 20px;
+            backface-visibility: hidden;
+            transition: transform .5s linear 0s;
+            box-shadow: rgba(0, 111, 155, 0.603) 0 20px 50px;
+        }
+
+        .flip3D:hover .front {
+            z-index: 400;
+            transform: perspective(400px) rotateY(-180deg);
+        }
+
+        .flip3D:hover .back {
+            z-index: 400;
+            transform: perspective(400px) rotateY(0deg);
+        }
+
+        .front div {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+        }
+
+        .front h2 {
+            font-size: 45px;
+            font-weight: 400;
+            color: #fff;
+        }
+
+        .front p {
+            font-weight: 400;
+            font-size: 30px;
+            color: #fff;
+        }
+
+        .back div {
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            width: max-content;
+            color: #fff;
+            text-align: center;
+        }
+
+        .back h3 {
+            font-weight: 400;
+            font-size: 30px;
+            margin: 90px;
+        }
+
+        .all {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .all>div {
+            flex: 0 20%;
+            margin: 20px 6%;
+        }
+
+        h1 {
+            font-weight: 400;
+            font-size: 50px;
+            padding: 30px;
+            text-align: center;
+            background: linear-gradient(to top right, teal, rgb(0, 255, 255));
+            color: #fff;
+            box-shadow: rgba(0, 128, 128, 0.644) 0 0 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Price List</h1>
+    <div class="all">
+        <%result.forEach(res => {%>
+
+        <div class="flip3D">
+            <div class="back">
+                <div>
+                    <h3>Base Price <br><b><%=res.BasePrice%></b></h3>
+                    <h3>Cost Per Day <br><b><%=res.CostPerDay%></b></h3>
+                </div>
+            </div>
+            <%if(res.color==0){%>
+            <div class="front zero">
+                <%}else if(res.color==1){%>
+                <div class="front one">
+                    <%}else if(res.color==2){%>
+                    <div class="front two">
+                        <%}else if(res.color==3){%>
+                        <div class="front three">
+                            <%}else if(res.color==4){%>
+                            <div class="front four">
+                                <%}else if(res.color==5){%>
+                                <div class="front five">
+                                    <%}%>
+                                <div>
+                                    <h2><%=res.LocName%></h2>
+                                    <p><%=res.country%></p>
+                                </div>
+                            </div>
+                        </div>
+                        <%});%>
+
+                    </div>
+
+</body>
+
+</html>

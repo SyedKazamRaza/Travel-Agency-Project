@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./materialize.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Show My details</title>
+</head>
+
+<body>
+    <a class="btn-floating btn-large waves-effect waves-light red" href="./agentTraveler"><img
+            src="./ASSETS/icons/back.png" alt=""></a>
+    <div>
+        <div class="allDetailCards">
+            <div class="travelDetail">
+                <h2>Personal Details</h2>
+                <div>
+                    <h3>First Name:</h3>
+                    <p><%=result[0].FName%></p>
+                </div>
+                <div>
+                    <h3>Last Name:</h3>
+                    <p><%=result[0].LName%></p>
+                </div>
+                <div>
+                    <h3>CNIC: </h3>
+                    <p><%=result[0].CNIC%></p>
+                </div>
+                <div>
+                    <h3>House #</h3>
+                    <p><%=result[0].House%></p>
+                </div>
+                <div>
+                    <h3>Street #</h3>
+                    <p><%=result[0].Street%></p>
+                </div>
+                <div>
+                    <h3>Block: </h3>
+                    <p><%=result[0].Block%></p>
+                </div>
+                <div>
+                    <h3>City: </h3>
+                    <p><%=result[0].City%></p>
+                </div>
+                <div>
+                    <h3>Country: </h3>
+                    <p><%=result[0].Country%></p>
+                </div>
+                <div>
+                    <h3>Contact # </h3>
+                    <p>+92 <%=result[0].PhoneNo%></p>
+                </div>
+                <div>
+                    <h3>Email: </h3>
+                    <p><%=result[0].Email%></p>
+                </div>
+            </div>
+
+            <div class="travelDetail">
+                <h2>Flight Details</h2>
+                <div>
+                    <h3>Go Flight Number:</h3>
+                    <p><%=flight[0].goFlightNumber%></p>
+                </div>
+                <div>
+                    <h3>Go Departure Date:</h3>
+                    <p><%=flight[0].goDepartureTime%></p>
+                </div>
+                <div>
+                    <h3>Return Flight Number:</h3>
+                    <p><%=flight[0].returnFlightNumber%></p>
+                </div>
+                <div>
+                    <h3>Return Departure Date:</h3>
+                    <p><%=flight[0].returnDepartureTime%></p>
+                </div>
+            </div>
+            <div class="travelDetail">
+                <h2>Hotel Details</h2>
+                <div>
+                    <h3>Name:</h3>
+                    <p><%=hotel[0].HotelName%></p>
+                </div>
+                <div>
+                    <h3>Address: </h3>
+                    <p><%=hotel[0].Street%>, <%=hotel[0].Block%>, <%=hotel[0].City%>, <%=hotel[0].Country%></p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="allDetailCards">
+
+            <div class="travelDetail">
+                <h2>Resturaunt Details</h2>
+                <div>
+                    <h3>Name:</h3>
+                    <p><%=rest[0].ResturantName%></p>
+                </div>
+                <div>
+                    <h3>Address: </h3>
+                    <p><%=rest[0].Street%>, <%=rest[0].Block%>, <%=rest[0].City%>, <%=rest[0].Country%></p>
+                </div>
+
+            </div>
+            <div class="travelDetail">
+                <h2>Bus Details</h2>
+                <div>
+                    <h3>Company Name:</h3>
+                    <p><%=bus[0].BusServiceProvider%></p>
+                </div>
+                <div>
+                    <h3>Bus No: </h3>
+                    <p><%=bus[0].busnum%></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

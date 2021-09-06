@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./materialize.min.css">
+    <link href="./adminS.css" rel="stylesheet" type="text/css">
+    <title>Travel Agency Database</title>
+</head>
+
+<body>
+    <a class="btn-floating btn-large waves-effect waves-light back" href="./adminSignIn"><img
+            src="./ASSETS/icons/back.png" alt=""></a>
+    <div id="adminPanel">
+        <div id="sideBar">
+            <a href="./adminPanel">
+                <div class="sideBarIcon">
+                    <img src="./ASSETS/icons/revenue.png" alt="">
+                </div>
+            </a>
+            <a href="./adminPanelAgent">
+                <div class="sideBarIcon">
+                    <img src="./ASSETS/icons/agent.png" alt="">
+                </div>
+            </a>
+            <a href="./adminPanelTraveller">
+                <div class="sideBarIcon">
+                    <img src="./ASSETS/icons/traveler.png" alt="">
+                </div>
+            </a>
+        </div>
+        <div id="adminTravelerPanel">
+            <h1>Stats And Details</h1>
+            <div class="charts">
+                <div class="graphOfRevenue">
+                    <h2>Top Locations</h2>
+                    <canvas id="myChart"></canvas>
+                </div>
+                <div class="graphOfRevenue">
+                    <h2>No of Registrations in Past 6 Days</h2>
+                    <canvas id="myChart1"></canvas>
+                </div>
+            </div>
+            <div class="manyButton">
+                <a href="/addMoreLocation" class="waves-effect waves-light btn-large">Add Location</a>
+                <a href="/editLocation" class="waves-effect waves-light btn-large">Edit Locations</a>
+            </div>
+        </div>
+        <script src="./ASSETS/Chart.min.js"></script>
+        <script src="./materialize.min.js"></script>
+        <script>
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['<%=locations[0].locname%>', '<%=locations[1].locname%>','<%=locations[2].locname%>', '<%=locations[3].locname%>','<%=locations[4].locname%>', '<%=locations[5].locname%>'
+                    ],
+                    datasets: [{
+                        label: '# of Visitors',
+                        data: [ <%= locations[0].number %> , <%= locations[1].number %> , <%=locations[2].number %> , <%= locations[3].number %> , <%= locations[4].number %> , <%= locations[5].number %>],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+            var ctx = document.getElementById('myChart1').getContext('2d');
+            var gradient = ctx.createLinearGradient(0, 0, 0, 400);
+            gradient.addColorStop(0, '#1fa082');
+            gradient.addColorStop(1, '#ffffff00');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['<%=dates[5].date.toString(10).slice(8,10)%>',
+                        '<%=dates[4].date.toString(10).slice(8,10)%>',
+                        '<%=dates[3].date.toString(10).slice(8,10)%>',
+                        '<%=dates[2].date.toString(10).slice(8,10)%>',
+                        '<%=dates[1].date.toString(10).slice(8,10)%>',
+                        '<%=dates[0].date.toString(10).slice(8,10)%>'
+                    ],
+                    datasets: [{
+                        label: '# of Registrations',
+                        data: [ <%= dates[5].number %> , <%= dates[4].number %> , <%= dates[3].number %> , <%= dates[2].number %> , <%= dates[1].number %> , <%=dates[0].number %>],
+                        backgroundColor: gradient,
+                        borderColor: '#1fa082',
+                        borderWidth: 3
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        </script>
+</body>
+
+</html>

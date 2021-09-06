@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./materialize.min.css">
+    <link rel="stylesheet" href="./ASSETS/fontAwesome/css/all.css">
+    <link rel="stylesheet" href="./agent.css">
+    <title>Agent Sign In</title>
+</head>
+
+<body>
+    <a class="btn-floating btn-large waves-effect waves-light red" href="/"><img src="./ASSETS/icons/back.png"
+            alt=""></a>
+
+    <div id="agentSignIn">
+        <div id="agentSignInSide">
+            <img src="./ASSETS/imgs/agnet.png" alt="">
+        </div>
+        <div>
+            <form id="agentSignInForm" method="POST">
+                <h2>Agent Sign In</h2>
+                <%if(invalid){%>
+                <p style="color: tomato; text-align: center;">Wrong Username or Password</p>
+                <%}%>
+                <div class="input-field col s11">
+                    <input id="name" type="text" name="name" class="validate">
+                    <label for="name">User Name</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="password" type="password" name="password" class="validate">
+                    <label for="password">Password</label>
+                </div>
+                <button class="waves-effect waves-light btn-large signinbutton" type="submit"
+                    href="/agentPanel">Sign In</button>
+            </form>
+            <div id="firstTime">
+                <p id="firstTimeQ">First Time?</p>
+                <p id="firstTimeA">Your User Name and Password is you Phone Number</p>
+            </div>
+        </div>
+    </div>
+    <script src="./materialize.min.js"></script>
+    <script src="./ASSETS/js-form-validator.min.js"></script>
+    <script>
+    new Validator(document.querySelector('form'), function (err, res) {
+		return res;
+    });
+    </script>
+</body>
+
+</html>

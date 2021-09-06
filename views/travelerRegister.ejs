@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./materialize.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Traveler Panel</title>
+</head>
+
+<body>
+    <div class="forBackRegister">
+        <a class="btn-floating btn-large waves-effect waves-light red" href="./travelerSignInScreen"><img
+                src="./ASSETS/icons/back.png" alt=""></a>
+        <br><br><br>
+        <div class="regForm">
+            <h3>Registration Form</h3>
+            <form method="POST" class="row regFormInside">
+                <div class="input-field col s12">
+                    <input id="FName" type="text" name="fname" data-rule="name" required class="validate">
+                    <label for="FName">First Name</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="LName" type="text" name="lname" data-rule="name" required class="validate">
+                    <label for="LName">Last Name</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="CNIC" type="text" name="CNIC" required data-rule="minlength-13|maxlength-13" class="validate" data-length="13">
+                    <label for="CNIC">CNIC</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="House" type="number" name="house" required class="validate">
+                    <label for="House">House No</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="Street" type="text" name="street" required class="validate">
+                    <label for="Street">Street No</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="Block" type="text" name="block" required class="validate">
+                    <label for="Block">Block</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="City" type="text" name="city" data-rule="name" required class="validate">
+                    <label for="City">City</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="Country" type="text" name="country" data-rule="name" required class="validate">
+                    <label for="Country">Country</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="phone" type="number" name="phone" data-rule="phone" required class="validate">
+                    <label for="phone">Phone no</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="email" type="email" name="email" data-rule="email" required class="validate">
+                    <label for="email">Email ID</label>
+                </div>
+                <div class="input-field col s12">
+                    <select name="location">
+                        <option value="" disabled selected>Choose your option</option>
+                        <%locations.forEach(location => {%>
+                        <option value="<%=location.LocationID%>"><%=location.LocName%></option>
+                        <%});%>
+                    </select>
+                    <label>Select Location</label>
+                </div>
+                <div class=" col s12">
+                    <label for="Startdate">Start Date</label>
+                    <input for="Startdate" required type="text" name="startDate" min="2020-01-01" class="datepicker">
+                </div>
+                <div class=" col s12">
+                    <label for="Enddate">End Date</label>
+                    <input for="Enddate" required type="text" name="endDate" class="datepicker">
+                </div>
+                <button class="waves-effect waves-light btn-large signinbutton" type="submit">Register</button>
+            </form>
+        </div>
+        <br><br><br>
+        <a class="prices" style="position: sticky; left: 80%;" href="/prices">Show Prices</a>
+    </div>
+    <script src="./materialize.min.js"></script>
+    <script src="./ASSETS/js-form-validator.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems);
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.datepicker');
+            var instances = M.Datepicker.init(elems);
+        });
+        new Validator(document.querySelector('form'), function (err, res) {
+		    return res;
+        });
+    </script>
+</body>
+
+</html>

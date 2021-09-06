@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./materialize.min.css">
+    <link rel="stylesheet" href="./agent.css">
+    <title>Show My details</title>
+</head>
+
+<body>
+    <a class="btn-floating btn-large waves-effect waves-light red" href="./agentMy"><img src="./ASSETS/icons/back.png"
+            alt=""></a>
+    <div id="showDetails">
+        <div id="leftSide">
+            <div id="toAlignRight">
+                <h2>My Profile</h2>
+                <img src="./ASSETS/imgs/profile.png" alt="">
+                <%if(ver=='personal'){%>
+                <a href="/showAgentDetails?ver=personal" style="color: #191560;" class="activeOpt">
+                    <h1>Personal Details</h1>
+                </a>
+                <%}else{%>
+                <a href="/showAgentDetails?ver=personal" style="color: #fff;">
+                    <h1>Personal Details</h1>
+                </a>
+                <%}if(ver=='address'){%>
+                <a href="/showAgentDetails?ver=address" style="color: #191560;" class="activeOpt">
+                    <h1>Address Details</h1>
+                </a>
+                <%}else{%>
+                <a href="/showAgentDetails?ver=address" style="color: #fff;">
+                    <h1>Address Details</h1>
+                </a>
+                <%}if(ver=='salary'){%>
+                <a href="/showAgentDetails?ver=salary" style="color: #191560;" class="activeOpt">
+                    <h1>Salary Details</h1>
+                </a>
+                <%}else{%>
+                <a href="/showAgentDetails?ver=salary" style="color: #fff;">
+                    <h1>Salary Details</h1>
+                </a>
+                <%}%>
+            </div>
+        </div>
+        <div id="rightSide">
+            <%if(ver=='personal'){%>
+                <h1>Personal Details</h1>
+                <div>
+                    <h3>First Name: <b><%=agentDetails[0].FName%></b></h3>
+                </div>
+                <div>
+                    <h3>Last Name: <b><%=agentDetails[0].LName%></b></h3>
+                </div>
+                <div>
+                    <h3>Contact # <b><%=agentDetails[0].PhoneNo%></b></h3>
+                </div>
+                <div>
+                    <h3>Email: <b><%=agentDetails[0].Email%></b></h3>
+                </div>
+                <!-- End -->
+                <%}else if(ver=='address'){%>
+                <h1>Address Details</h1>
+                <div>
+                    <h3>House # <b><%=agentDetails[0].House%></b></h3>
+                </div>
+                <div>
+                    <h3>Street # <b><%=agentDetails[0].Street%></b></h3>
+                </div>
+                <div>
+                    <h3>Block: <b><%=agentDetails[0].Block%></b></h3>
+                </div>
+                <div>
+                    <h3>City: <b><%=agentDetails[0].City%></b></h3>
+                </div>
+                <div>
+                    <h3>Country: <b><%=agentDetails[0].Country%></b></h3>
+                </div>
+                <!-- End -->
+                <%}else if(ver=='salary'){%>
+                <h1>Salary Details</h1>
+                <div>
+                    <h3>Base Salary: <b><%=agentDetails[0].Sal%> Rupees</b></h3>
+                </div>
+                <div>
+                    <h3>Number of customer this month: <b><%=noofcus[0].num%></b></h3>
+                </div>
+                <div>
+                    <h3>Commission per customer: <b><%=agentDetails[0].CommPerPerson%> rupees</b></h3>
+                </div>
+                <div id="toMakeRed">
+                    <h3>Total Commission: <b><%=agentDetails[0].Comm%> Rupees</b></h3>
+                </div>
+                <div id="toMakeGreen">
+                    <h3>Total Salary: <b><%=parseFloat(agentDetails[0].Comm) + parseFloat(agentDetails[0].Sal)%> Rupees</b></h3>
+                </div>
+                <%}%>
+        </div>
+    </div>
+</body>
+
+</html>

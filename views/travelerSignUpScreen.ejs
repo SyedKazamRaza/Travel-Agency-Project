@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./materialize.min.css">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Create your account</title>
+</head>
+
+<body>
+  <a class="btn-floating btn-large waves-effect waves-light red" href="./travelerSignInScreen"><img
+      src="./ASSETS/icons/back.png" alt=""></a>
+
+  <div class="travelerSignInScreen">
+    <div class="sideImgSignIn">
+      <h2>Travel Agency</h2>
+      <img id="signupside" src="./ASSETS/imgs/signupside.png" alt="IMG">
+    </div>
+    <div class="input-field signInForm">
+
+      <h2 class="siginname">Create an account</h2>
+      <form method="POST" class="row signinforminside">
+        <%if(alreadyExist){%>
+        <p style="color: tomato; text-align: center;">User Name Already Taken</p>
+        <%}%>
+        <div class="input-field col s12">
+          <input id="name" type="text" name="name" required data-rule="name" class="validate">
+          <label for="name">Choose User Name</label>
+        </div>
+        <div class="input-field col s12">
+          <input id="password" type="password" required name="password" class="validate">
+          <label for="password">Create a Password</label>
+        </div>
+        <button class="waves-effect waves-light btn-large signinbutton" type="submit">Create an account</button>
+      </form>
+    </div>
+  </div>
+  <script src="./materialize.min.js"></script>
+  <script src="./ASSETS/js-form-validator.min.js"></script>
+    <script>
+    new Validator(document.querySelector('form'), function (err, res) {
+		return res;
+    });
+    </script>
+</body>
+
+</html>

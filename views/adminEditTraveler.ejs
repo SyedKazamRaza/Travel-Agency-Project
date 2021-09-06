@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./materialize.min.css">
+    <link rel="stylesheet" href="./adminS.css">
+    <title>Document</title>
+</head>
+<body>
+    <a class="btn-floating btn-large waves-effect waves-light back" href="./adminPanelTraveller"><img
+        src="./ASSETS/icons/back.png" alt=""></a>
+    <div id="moneyPage">
+    <div id="sideOfEditTraveller">
+        <img src="./ASSETS/imgs/moneyBack.png" alt="">
+        <img id="paymentImg" src="./ASSETS/imgs/payment.png" alt="">
+    </div>
+    <div id="rightOfMoney">
+        <h2>Edit Payments</h2>
+        <form method="POST" class="row payments">
+               <h3>First Name: </h3>
+               <p><%=result[0].FName%></p>
+               <h3>Last Name: </h3>
+               <p><%=result[0].LName%></p>
+                <div class="input-field col s12 toAddSpace">
+                    <input id="House" type="number" name="totalCharges" value="<%=result[0].TotalServiceCharges%>" class="validate">
+                    <label for="House">Total Service Charges</label>
+                </div>
+                <div class="input-field col s12" style="display: none;">
+                    <input id="Street" type="number" name="total" value="<%=result[0].TotalRecived%>" class="validate">
+                    <label for="Street">Total Recieved</label>
+                </div>
+                <div>
+                    <p style="text-align: center;">Total Received: </p>
+                    <h2><%=result[0].TotalRecived%></h2>
+                </div>
+                <div class="input-field col s12">
+                    <input id="Block" type="number" name="AddMore" class="validate">
+                    <label for="Block">Add more amount</label>
+                </div>
+               
+                <button class="waves-effect waves-light btn-large editButton" type="submit"
+                    href="./adminPanelTraveller">Save the Edit</button>
+            </form>
+    </div>
+</div>
+<script src="./materialize.min.js"></script>
+
+</body>
+</html>
